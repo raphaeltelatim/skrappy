@@ -5,7 +5,7 @@ defmodule Skrappy.WebClientTest do
 
   alias Skrappy.Http.Client, as: HttpClient
 
-  @http_client Application.get_env(:skrappy, :http)[:client]
+  @http_client Application.compile_env(:skrappy, :http)[:client]
 
   describe "scrap_page/1" do
     test "returns raw html body on success" do
