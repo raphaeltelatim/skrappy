@@ -1,4 +1,17 @@
 defmodule Skrappy.Http.Client do
+  @moduledoc """
+    Provides a way to scrap a web page
+  """
+
+  @doc """
+  Returns a raw html for the given page
+
+  ## Example
+  iex> scrap_page(1)
+  {:ok, "<body>\n  Hi, I'm a HTML body\n</body>\n"}
+  """
+
+  @spec scrap_page(page :: integer()) :: {:ok, String.t()} | {:error, term()}
   def scrap_page(page) do
     page
     |> get_page()
