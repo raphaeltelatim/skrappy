@@ -1,4 +1,4 @@
-defmodule Skrappy.WebClientTest do
+defmodule Skrappy.Http.ClientTest do
   use ExUnit.Case, async: true
 
   import Mox
@@ -35,7 +35,7 @@ defmodule Skrappy.WebClientTest do
   end
 
   defp html_response() do
-    "../support/dealerrater_mock.html"
+    "../../support/dealerrater_mock.html"
     |> Path.expand(__DIR__)
     |> File.read!()
   end
