@@ -21,6 +21,7 @@ defmodule Skrappy.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:floki, "~> 0.31.0"},
       {:httpoison, "~> 1.8"},
       {:mox, "~> 1.0", only: :test}
     ]
