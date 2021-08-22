@@ -3,6 +3,8 @@ defmodule Skrappy.Review.Adapter do
   Parses dealerrater html into a map with reviews attributes
   """
 
+  alias Skrappy.Review.Analyzer, as: ReviewAnalyzer
+
   @doc """
   Returns a map with review information
 
@@ -37,6 +39,7 @@ defmodule Skrappy.Review.Adapter do
     |> Map.put(:deal_rating, get_deal_rating(review_html))
     |> Map.put(:user, get_user(review_html))
     |> Map.put(:employees, get_employees(review_html))
+    |> Map.put(:fraud_level, get_fraud_level(review_html))
   end
 
   defp get_title(review_html) do
@@ -78,6 +81,12 @@ defmodule Skrappy.Review.Adapter do
     review_html
     |> Floki.find(".review-employee")
     |> Enum.map(&build_employee/1)
+  end
+
+  defp get_fraud_level(review_html) do
+    review_html
+    |> get_body()
+    |> ReviewAnalyzer.set_fraud_level()
   end
 
   defp build_employee(employee_html) do
