@@ -12,7 +12,8 @@ defmodule Skrappy.Entities.ReviewTest do
         date: "May 17, 2009",
         deal_rating: 5.0,
         user: "G. Fring",
-        employees: [%{name: "W. White", rating: 5.0}]
+        employees: [%{name: "W. White", rating: 5.0}],
+        fraud_level: 143
       }
 
       assert Review.new(attributes) == %Skrappy.Entities.Review{
@@ -24,7 +25,7 @@ defmodule Skrappy.Entities.ReviewTest do
                employees: [
                  %Skrappy.Entities.Employee{name: "W. White", rating: 5.0}
                ],
-               fraud_indicator: nil
+               fraud_level: 143
              }
     end
   end

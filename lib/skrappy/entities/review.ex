@@ -5,7 +5,7 @@ defmodule Skrappy.Entities.Review do
   Stores review attributes in a structed way
   """
 
-  defstruct [:title, :body, :date, :deal_rating, :user, :employees, :fraud_indicator]
+  defstruct [:title, :body, :date, :deal_rating, :user, :employees, :fraud_level]
 
   @doc """
   Returns review struct
@@ -21,7 +21,7 @@ defmodule Skrappy.Entities.Review do
     employees: [
       %Skrappy.Entities.Employee{name: "W. White", rating: 5.0}
     ],
-    fraud_indicator: nil
+    fraud_level: 50
   }
   """
   @spec new(map()) :: struct()
@@ -32,7 +32,8 @@ defmodule Skrappy.Entities.Review do
       date: attrs.date,
       deal_rating: attrs.deal_rating,
       user: attrs.user,
-      employees: Enum.map(attrs.employees, &Employee.new/1)
+      employees: Enum.map(attrs.employees, &Employee.new/1),
+      fraud_level: attrs.fraud_level
     }
   end
 end

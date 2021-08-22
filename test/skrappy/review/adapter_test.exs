@@ -17,7 +17,8 @@ defmodule Skrappy.Review.AdapterTest do
                    %{name: "Summur Villareal", rating: 5.0}
                  ],
                  title: "Wow, such a good title",
-                 user: "Steve W."
+                 user: "Steve W.",
+                 fraud_level: 0
                },
                %{
                  body: "Wow, such another good body",
@@ -28,7 +29,8 @@ defmodule Skrappy.Review.AdapterTest do
                    %{name: "Patrick Evans", rating: 4.9}
                  ],
                  title: "Wow, such another good title",
-                 user: "Mark F."
+                 user: "Mark F.",
+                 fraud_level: 0
                }
              ] == ReviewAdapter.from_html(raw_html())
     end
