@@ -16,16 +16,16 @@ defmodule Skrappy.Entities.ReviewTest do
       }
 
       assert Review.new(attributes) == %Skrappy.Entities.Review{
-        title: "Wow, such title",
-        body: "Wow, such body",
-        date: "May 17, 2009",
-        deal_rating: 5.0,
-        user: "G. Fring",
-        employees: [
-          %Skrappy.Entities.Employee{name: "W. White", rating: 5.0}
-        ],
-        fraud_indicator: nil
-      }
+               title: "Wow, such title",
+               body: "Wow, such body",
+               date: "May 17, 2009",
+               deal_rating: 5.0,
+               user: "G. Fring",
+               employees: [
+                 %Skrappy.Entities.Employee{name: "W. White", rating: 5.0}
+               ],
+               fraud_indicator: nil
+             }
     end
   end
 end
