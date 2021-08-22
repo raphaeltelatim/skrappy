@@ -4,13 +4,12 @@ defmodule Skrappy.Http.Client do
   """
 
   @doc """
-  Returns a raw html for the given page
+  Returns a raw html for the given page number
 
   ## Example
   iex> scrap_page(1)
-  {:ok, "<body>\n  Hi, I'm a HTML body\n</body>\n"}
+  {:ok, "<body>\n Hi, I'm a HTML body\n</body>\n"}
   """
-
   @spec scrap_page(page :: integer()) :: {:ok, String.t()} | {:error, term()}
   def scrap_page(page) do
     page
