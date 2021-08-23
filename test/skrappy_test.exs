@@ -13,33 +13,33 @@ defmodule SkrappyTest do
       end)
 
       assert [
-        %Skrappy.Entities.Review{
-          body: "Wow, such exceptional body",
-          date: "August 18, 2021",
-          deal_rating: 5.0,
-          employees: [
-            %Skrappy.Entities.Employee{name: "Taylor Prickett", rating: 5.0},
-            %Skrappy.Entities.Employee{name: "Dennis Smith", rating: 5.0},
-            %Skrappy.Entities.Employee{name: "Patrick Evans", rating: 5.0},
-            %Skrappy.Entities.Employee{name: "Summur Villareal", rating: 5.0}
-          ],
-          fraud_level: 100,
-          title: "Wow, such a good title",
-          user: "Steve W."
-        },
-        %Skrappy.Entities.Review{
-          body: "Wow, such awesome body",
-          date: "August 15, 2021",
-          deal_rating: 4.8,
-          employees: [
-            %Skrappy.Entities.Employee{name: "Freddie Tomlinson", rating: 4.7},
-            %Skrappy.Entities.Employee{name: "Patrick Evans", rating: 4.9}
-          ],
-          fraud_level: 60,
-          title: "Wow, such title",
-          user: "Mark F."
-        }
-      ] == Skrappy.fraud_detect(1)
+               %Skrappy.Entities.Review{
+                 body: "Wow, such exceptional body",
+                 date: "August 18, 2021",
+                 deal_rating: 5.0,
+                 employees: [
+                   %Skrappy.Entities.Employee{name: "Taylor Prickett", rating: 5.0},
+                   %Skrappy.Entities.Employee{name: "Dennis Smith", rating: 5.0},
+                   %Skrappy.Entities.Employee{name: "Patrick Evans", rating: 5.0},
+                   %Skrappy.Entities.Employee{name: "Summur Villareal", rating: 5.0}
+                 ],
+                 fraud_level: 100,
+                 title: "Wow, such a good title",
+                 user: "Steve W."
+               },
+               %Skrappy.Entities.Review{
+                 body: "Wow, such awesome body",
+                 date: "August 15, 2021",
+                 deal_rating: 4.8,
+                 employees: [
+                   %Skrappy.Entities.Employee{name: "Freddie Tomlinson", rating: 4.7},
+                   %Skrappy.Entities.Employee{name: "Patrick Evans", rating: 4.9}
+                 ],
+                 fraud_level: 60,
+                 title: "Wow, such title",
+                 user: "Mark F."
+               }
+             ] == Skrappy.fraud_detect(1)
     end
   end
 end
