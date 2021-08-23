@@ -1,5 +1,9 @@
 defmodule Skrappy.Factory do
-  # https://hexdocs.pm/ecto/test-factories.html
+  @moduledoc """
+  Factory for tests purposes
+
+  https://hexdocs.pm/ecto/test-factories.html
+  """
 
   alias Skrappy.Entities.{Employee, Review}
 
