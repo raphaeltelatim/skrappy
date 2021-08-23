@@ -3,11 +3,13 @@ defmodule Skrappy.Review.AdapterTest do
 
   alias Skrappy.Review.Adapter, as: ReviewAdapter
 
+  import Skrappy.Factory
+
   describe "from_html/1" do
     test "parses raw html into review attributes map" do
       assert [
                %{
-                 body: "Wow, such a good body",
+                 body: "Wow, such exceptional body",
                  date: "August 18, 2021",
                  deal_rating: 5.0,
                  employees: [
@@ -18,31 +20,25 @@ defmodule Skrappy.Review.AdapterTest do
                  ],
                  title: "Wow, such a good title",
                  user: "Steve W.",
-                 fraud_level: 0
+                 fraud_level: 100
                },
                %{
-                 body: "Wow, such another good body",
+                 body: "Wow, such awesome body",
                  date: "August 15, 2021",
                  deal_rating: 4.8,
                  employees: [
                    %{name: "Freddie Tomlinson", rating: 4.7},
                    %{name: "Patrick Evans", rating: 4.9}
                  ],
-                 title: "Wow, such another good title",
+                 title: "Wow, such title",
                  user: "Mark F.",
-                 fraud_level: 0
+                 fraud_level: 60
                }
-             ] == ReviewAdapter.from_html(raw_html())
+             ] == ReviewAdapter.from_html(reviews_html())
     end
 
     test "returns empty list for invalid html" do
       assert [] == ReviewAdapter.from_html("<html><body><p>Nothing to see here</p></body></html>")
     end
-  end
-
-  defp raw_html() do
-    "../../support/dealerrater_mock.html"
-    |> Path.expand(__DIR__)
-    |> File.read!()
   end
 end
