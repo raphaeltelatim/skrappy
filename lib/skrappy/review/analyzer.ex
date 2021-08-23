@@ -30,6 +30,28 @@ defmodule Skrappy.Review.Analyzer do
     end)
   end
 
+  @doc """
+  Returns the most n suspicious reviews based on fraud level attribute (from higher to lower).
+
+  ## Example
+  iex> most_suspicious([
+    Skrappy.Entities.Review{fraud_level: 100},
+    Skrappy.Entities.Review{fraud_level: 29},
+    Skrappy.Entities.Review{fraud_level: 50}
+
+  ], 2)
+  [
+    Skrappy.Entities.Review{fraud_level: 100},
+    Skrappy.Entities.Review{fraud_level: 50}
+  ]
+  """
+  @spec most_suspicious(list(struct()), integer()) :: list(struct())
+  def most_suspicious(reviews, quantity) do
+    reviews
+    |> Enum.sort_by(& &1.fraud_level, :desc)
+    |> Enum.take(quantity)
+  end
+
   defp fraud_keywords() do
     %{
       "awesome" => 60,

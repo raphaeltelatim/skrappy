@@ -2,6 +2,7 @@ defmodule Skrappy.Http.ClientTest do
   use ExUnit.Case, async: true
 
   import Mox
+  import Skrappy.Factory
 
   alias Skrappy.Http.Client, as: HttpClient
 
@@ -10,11 +11,11 @@ defmodule Skrappy.Http.ClientTest do
   describe "scrap_page/1" do
     test "returns raw html body on success" do
       expect(@http_client, :get, fn _ ->
-        {:ok, %HTTPoison.Response{body: html_response(), status_code: 200}}
+        {:ok, %HTTPoison.Response{body: reviews_html(), status_code: 200}}
       end)
 
       assert {:ok, success_response} = HttpClient.scrap_page(1)
-      assert success_response == html_response()
+      assert success_response == reviews_html()
     end
 
     test "returns error for an unexisting page" do
@@ -32,11 +33,5 @@ defmodule Skrappy.Http.ClientTest do
 
       assert {:error, :unexpected} = HttpClient.scrap_page(1)
     end
-  end
-
-  defp html_response() do
-    "../../support/dealerrater_mock.html"
-    |> Path.expand(__DIR__)
-    |> File.read!()
   end
 end
